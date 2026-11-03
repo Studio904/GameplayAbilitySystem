@@ -7,7 +7,7 @@
 #include "AuraPlayerController.generated.h"
 
 class UInputMappingContext;
-class UIInputAction;
+class UInputAction;
 struct FInputActionValue;
 /**
  * 

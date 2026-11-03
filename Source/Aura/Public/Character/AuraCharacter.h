@@ -6,6 +6,8 @@
 #include "Character/Studio904CharacterBase.h"
 #include "AuraCharacter.generated.h"
 
+class USpringArmComponent;
+class UCameraComponent;
 /**
  * 
  */
@@ -22,5 +24,11 @@ protected:
 	
 	UPROPERTY(EditAnywhere, Category="Combat")
 	TObjectPtr<USkeletalMeshComponent> Weapon;
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera")
+	USpringArmComponent* CameraBoom;
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera")
+	UCameraComponent* Camera;
 	
 };
