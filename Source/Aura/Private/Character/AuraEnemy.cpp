@@ -12,6 +12,16 @@ AAuraEnemy::AAuraEnemy()
 	Weapon->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 }
 
+void AAuraEnemy::HighLightActor()
+{
+	
+}
+
+void AAuraEnemy::UnHighLightActor()
+{
+	
+}
+
 void AAuraEnemy::BeginPlay()
 {
 	Super::BeginPlay();
