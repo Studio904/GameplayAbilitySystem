@@ -2,6 +2,7 @@
 
 
 #include "Character/AuraEnemy.h"
+#include "Aura/Aura.h"
 
 AAuraEnemy::AAuraEnemy()
 {
@@ -10,16 +11,23 @@ AAuraEnemy::AAuraEnemy()
 	Weapon = CreateDefaultSubobject<USkeletalMeshComponent>("Weapon");
 	Weapon->SetupAttachment(GetMesh(), FName("Hand-LSocket"));
 	Weapon->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	
+	GetMesh()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
 }
 
 void AAuraEnemy::HighLightActor()
 {
-	bHighLighted = true;
+	GetMesh()->SetRenderCustomDepth(true);
+	GetMesh()->SetCustomDepthStencilValue(CUSTOM_DEPTH_RED);
+	Weapon->SetRenderCustomDepth(true);
+	Weapon->SetCustomDepthStencilValue(CUSTOM_DEPTH_RED);
+	
 }
 
 void AAuraEnemy::UnHighLightActor()
 {
-	bHighLighted = false;
+	GetMesh()->SetRenderCustomDepth(false);
+	Weapon->SetRenderCustomDepth(false);
 }
 
 void AAuraEnemy::BeginPlay()
